@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Carndonagh Christmas Tree Committee</title>
+<meta name="description" content="Carndonagh Christmas Tree Committee – bringing the Carn Tree to the Diamond every Christmas. Support us on PayPal and follow us on Facebook.">
+<meta property="og:title" content="Carndonagh Christmas Tree Committee">
+<meta property="og:description" content="Christmas Tree Switch-On and Christmas Craft Fair – Sunday 29th November, Carndonagh.">
+<meta property="og:image" content="https://carntree.ie/images/switch-on.jpg">
+<meta property="og:url" content="https://carntree.ie/">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎄</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mountains+of+Christmas:wght@700&family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --night:#0b1a33; --night-2:#132a4f; --red:#c8102e; --red-dark:#8f0b20;
+    --gold:#f4c95d; --green:#1f6b3a; --snow:#ffffff; --ink:#f3f6fb; --muted:#b9c6dc;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{
+    font-family:Lato,system-ui,sans-serif; color:var(--ink);
+    background:radial-gradient(ellipse at top,var(--night-2),var(--night) 60%) fixed;
+    background-color:var(--night); min-height:100vh; overflow-x:hidden;
+  }
+  #snow{position:fixed;inset:0;pointer-events:none;z-index:50}
+
+  /* ---------- Banner ---------- */
+  .banner{
+    position:relative; min-height:clamp(320px,52vw,560px);
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    text-align:center; padding:48px 16px 80px;
+    background:
+      linear-gradient(to bottom,rgba(11,26,51,.35),rgba(11,26,51,.15) 40%,rgba(11,26,51,.85) 92%,var(--night)),
+      url("images/carn-town.jpg") center 30%/cover no-repeat;
+  }
+  .banner::after{ /* snowy ground edge */
+    content:""; position:absolute; left:0; right:0; bottom:-1px; height:46px;
+    background:var(--night);
+    -webkit-mask:radial-gradient(28px 22px at 28px 0,transparent 98%,#000) 0 0/56px 46px repeat-x;
+            mask:radial-gradient(28px 22px at 28px 0,transparent 98%,#000) 0 0/56px 46px repeat-x;
+  }
+  .eyebrow{
+    font-weight:900; letter-spacing:.35em; text-transform:uppercase; font-size:clamp(.75rem,2.2vw,1rem);
+    color:var(--gold); text-shadow:0 2px 8px rgba(0,0,0,.8); margin:0 0 10px;
+  }
+
+  /* Snow-capped title */
+  .title{
+    font-family:"Mountains of Christmas",cursive; font-weight:700; margin:0; line-height:1.05;
+    font-size:clamp(2.6rem,8.5vw,6.2rem);
+  }
+  .title .line{display:block; position:relative; color:var(--red);
+    -webkit-text-stroke:2px #fff2;
+    text-shadow:0 3px 0 var(--red-dark),0 6px 0 #5d0715,0 10px 22px rgba(0,0,0,.75),0 0 40px rgba(255,210,120,.35);
+  }
+  .title .line.green{color:#2f9d55; text-shadow:0 3px 0 #17502b,0 6px 0 #0d3019,0 10px 22px rgba(0,0,0,.75),0 0 40px rgba(255,210,120,.35)}
+  .title .line::before{ /* the snow cap: same text in white, clipped to a wavy top band */
+    content:attr(data-text); position:absolute; inset:0; color:var(--snow);
+    text-shadow:0 0 6px #fff,0 1px 2px #dfe9ff; -webkit-text-stroke:0;
+    clip-path:polygon(0 0,100% 0,100% 42%,96% 49%,92% 43%,87% 51%,82% 44%,77% 50%,72% 42%,66% 51%,61% 45%,55% 52%,50% 43%,45% 50%,40% 44%,34% 52%,29% 43%,24% 49%,19% 42%,14% 51%,9% 44%,4% 50%,0 43%);
+  }
+  .sub{
+    margin:18px 0 0; font-size:clamp(1rem,2.6vw,1.3rem); color:#fff; font-weight:700;
+    text-shadow:0 2px 10px rgba(0,0,0,.9);
+  }
+
+  main{max-width:1100px; margin:0 auto; padding:8px 16px 48px; position:relative; z-index:1}
+
+  /* ---------- Action buttons ---------- */
+  .actions{display:grid; grid-template-columns:1fr 1fr; gap:18px; margin:-36px auto 40px; max-width:820px; position:relative; z-index:2}
+  .btn{
+    display:flex; align-items:center; justify-content:center; gap:14px; text-decoration:none;
+    padding:20px 22px; border-radius:16px; font-weight:900; font-size:clamp(1.05rem,2.4vw,1.35rem);
+    color:#fff; border:2px solid rgba(255,255,255,.18); transition:transform .15s ease, box-shadow .15s ease;
+    box-shadow:0 10px 30px rgba(0,0,0,.45);
+  }
+  .btn:hover,.btn:focus-visible{transform:translateY(-3px); box-shadow:0 16px 36px rgba(0,0,0,.55)}
+  .btn:focus-visible{outline:3px solid var(--gold); outline-offset:3px}
+  .btn svg{width:30px;height:30px;flex:none}
+  .btn small{display:block; font-weight:400; font-size:.78rem; opacity:.9; letter-spacing:.02em}
+  .btn span{text-align:left; line-height:1.15}
+  .donate{background:linear-gradient(135deg,var(--red),var(--red-dark)); border-color:var(--gold)}
+  .facebook{background:linear-gradient(135deg,#1877f2,#0d5bc4)}
+
+  /* ---------- Posters ---------- */
+  h2{
+    font-family:"Mountains of Christmas",cursive; font-size:clamp(2rem,5vw,3rem); text-align:center;
+    color:var(--gold); margin:0 0 26px; text-shadow:0 3px 12px rgba(0,0,0,.6);
+  }
+  .date{text-align:center; color:var(--muted); margin:0 0 26px; font-weight:700; letter-spacing:.05em}
+  .posters{display:grid; grid-template-columns:1fr 1fr; gap:28px; align-items:start}
+  .poster{margin:0; background:#fff; padding:10px; border-radius:14px; box-shadow:0 18px 44px rgba(0,0,0,.55), 0 0 0 4px var(--gold) inset;}
+  .poster a{display:block; border-radius:8px; overflow:hidden}
+  .poster img{display:block; width:100%; height:auto; transition:transform .3s ease}
+  .poster a:hover img{transform:scale(1.02)}
+  .poster figcaption{color:#333; text-align:center; font-size:.9rem; padding:10px 4px 2px; font-weight:700}
+
+  footer{text-align:center; color:var(--muted); font-size:.9rem; padding:28px 16px 40px; border-top:1px solid #ffffff14}
+  footer a{color:var(--gold)}
+
+  @media (max-width:700px){
+    .actions{grid-template-columns:1fr; margin-top:-24px}
+    .posters{grid-template-columns:1fr}
+    .title .line{-webkit-text-stroke:1px #fff2}
+  }
+</style>
+</head>
+<body>
+<canvas id="snow" aria-hidden="true"></canvas>
+
+<header class="banner">
+  <p class="eyebrow">★ The Carn Tree ★</p>
+  <h1 class="title" aria-label="Carndonagh Christmas Tree Committee">
+    <span class="line" data-text="Carndonagh" aria-hidden="true">Carndonagh</span>
+    <span class="line green" data-text="Christmas Tree" aria-hidden="true">Christmas Tree</span>
+    <span class="line" data-text="Committee" aria-hidden="true">Committee</span>
+  </h1>
+  <p class="sub">Lighting up the Diamond every Christmas</p>
+</header>
+
+<main>
+  <div class="actions">
+    <a class="btn donate" href="https://www.paypal.com/paypalme/carntree" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7.1 21.5H3.6a.6.6 0 0 1-.6-.7L5.8 3a.9.9 0 0 1 .9-.8h6.7c3.6 0 5.8 1.8 5.2 5.2-.7 4-3.4 5.6-7 5.6H9.4a.9.9 0 0 0-.9.8l-1.4 7.7Zm12.6-12.8c-.1.3-.1.6-.2.9-.9 4.5-4.1 6.3-8 6.3h-.6l-1 6.1h2.8a.8.8 0 0 0 .8-.7l.7-4.2a.8.8 0 0 1 .8-.7h.5c3.3 0 5.9-1.3 6.6-5.2.3-1.4.2-2.6-.4-3.4l-2-.1Z"/></svg>
+      <span>Pay via PayPal<small>Draw tickets, raffles &amp; fundraisers</small></span>
+    </a>
+    <a class="btn facebook" href="https://www.facebook.com/p/Carndonagh-Christmas-Tree-Committee-Carn-Tree-100064505867565/" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12a12 12 0 1 0-13.9 11.9v-8.4H7.1V12h3V9.4c0-3 1.8-4.7 4.5-4.7 1.3 0 2.7.2 2.7.2v3h-1.5c-1.5 0-2 .9-2 1.9V12h3.4l-.5 3.5h-2.9v8.4A12 12 0 0 0 24 12Z"/></svg>
+      <span>Follow us on Facebook<small>News, photos &amp; updates</small></span>
+    </a>
+  </div>
+
+  <h2>What's On!</h2>
+
+  <section class="posters" aria-label="Event posters">
+    <figure class="poster">
+      <a href="images/switch-on.jpg" target="_blank" rel="noopener">
+        <img src="images/switch-on.jpg" width="1254" height="1254" alt="Carndonagh Christmas Tree Switch-On, Sunday 29th November from 5.30pm. Everyone is welcome to enjoy music, festive cheer and the arrival of Santa!">
+      </a>
+      <figcaption>Christmas Tree Switch-On · from 5.30pm</figcaption>
+    </figure>
+    <figure class="poster">
+      <a href="images/craft-fair.jpg" target="_blank" rel="noopener">
+        <img src="images/craft-fair.jpg" width="1054" height="1490" loading="lazy" alt="Christmas Craft Fair at the Christmas Cabin, back entrance of the Sportsmans Inn, Sunday 29th November 2–5pm. Christmas Tree lighting 6pm. All proceeds to Friends of Inishowen Hospice and the Carndonagh Christmas Tree Committee.">
+      </a>
+      <figcaption>Christmas Craft Fair · Christmas Cabin, 2–5pm</figcaption>
+    </figure>
+  </section>
+</main>
+
+<footer>
+  © <span id="yr">2026</span> Carndonagh Christmas Tree Committee ·
+  <a href="https://www.facebook.com/p/Carndonagh-Christmas-Tree-Committee-Carn-Tree-100064505867565/" target="_blank" rel="noopener">Facebook</a>
+</footer>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  // Gentle falling snow (skipped if the visitor prefers reduced motion)
+  (function(){
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const c = document.getElementById('snow'), x = c.getContext('2d');
+    let w, h, flakes = [];
+    function size(){
+      w = c.width = innerWidth; h = c.height = innerHeight;
+      const n = Math.min(160, Math.round(w * h / 12000));
+      flakes = Array.from({length:n}, () => ({
+        x: Math.random()*w, y: Math.random()*h, r: Math.random()*2.6+0.8,
+        s: Math.random()*0.8+0.4, d: Math.random()*Math.PI*2
+      }));
+    }
+    function tick(){
+      x.clearRect(0,0,w,h); x.fillStyle = 'rgba(255,255,255,.85)'; x.beginPath();
+      for (const f of flakes){
+        f.d += 0.01; f.y += f.s; f.x += Math.sin(f.d)*0.5;
+        if (f.y > h + 5){ f.y = -5; f.x = Math.random()*w; }
+        x.moveTo(f.x, f.y); x.arc(f.x, f.y, f.r, 0, Math.PI*2);
+      }
+      x.fill(); requestAnimationFrame(tick);
+    }
+    addEventListener('resize', size); size(); tick();
+  })();
+</script>
+</body>
+</html>
