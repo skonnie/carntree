@@ -54,13 +54,13 @@
     font-size:clamp(2.6rem,8.5vw,6.2rem);
   }
   .title .line{display:block; position:relative; color:var(--red);
-    -webkit-text-stroke:2px #fff2;
+    -webkit-text-stroke:.045em currentColor; paint-order:stroke fill; /* thickens the letters */
     text-shadow:0 .03em 0 var(--red-dark),0 .06em 0 #5d0715,0 .1em .22em rgba(0,0,0,.75),0 0 .4em rgba(255,210,120,.35);
   }
   .title .line.green{color:#2f9d55; text-shadow:0 .03em 0 #17502b,0 .06em 0 #0d3019,0 .1em .22em rgba(0,0,0,.75),0 0 .4em rgba(255,210,120,.35)}
   .title .line::before{ /* the snow cap: same text in white, clipped to a wavy top band */
     content:attr(data-text); position:absolute; inset:0; color:var(--snow);
-    text-shadow:0 0 6px #fff,0 1px 2px #dfe9ff; -webkit-text-stroke:0;
+    text-shadow:0 0 6px #fff,0 1px 2px #dfe9ff; -webkit-text-stroke:.045em #fff; paint-order:stroke fill;
     clip-path:polygon(0 0,100% 0,100% 42%,96% 49%,92% 43%,87% 51%,82% 44%,77% 50%,72% 42%,66% 51%,61% 45%,55% 52%,50% 43%,45% 50%,40% 44%,34% 52%,29% 43%,24% 49%,19% 42%,14% 51%,9% 44%,4% 50%,0 43%);
   }
   /* Warm glow behind the whole title */
@@ -121,7 +121,6 @@
   @media (max-width:700px){
     .actions{grid-template-columns:1fr; margin-top:-24px}
     .posters{grid-template-columns:1fr}
-    .title .line{-webkit-text-stroke:1px #fff2}
   }
 </style>
 </head>
